@@ -1,0 +1,25 @@
+{% set componentName = "wiloke-counter" %}
+
+{% set columnStyles = '--col-xs:' ~ data.responsive.xs ~ ';--col-sm:' ~ data.responsive.sm ~ ';--col-md:' ~ data.responsive.md ~ ';--col-lg:' ~ data.responsive.lg %}
+{% set gapStyles = '--gap-xs:' ~ data.responsive.gapXs ~ 'px;--gap-sm:' ~ data.responsive.gapSm ~ 'px;--gap-md:' ~ data.responsive.gapMd ~ 'px;--gap-lg:' ~ data.responsive.gapLg ~ 'px' %}
+
+
+{% set general = data.general %}
+{% set content = data.general.content %}
+{% set typography = data.typography %}
+{% set colors = data.colors %}
+{% set border = data.border %}
+{% set carousel = data.carousel %}
+{% set responsive = data.responsive %}
+
+
+{# Colors #}
+
+{% set borderWidth = border.borderItemWidth ? 'border-width: ' ~ border.borderItemWidth ~ 'px;' : '' %}
+{% set borderStyle = border.borderItemStyle ? 'border-style: ' ~ border.borderItemStyle ~ ';': '' %}
+{% set borderColor = border.borderItemColor ? 'border-color: ' ~ border.borderItemColor ~ ';' : '' %}
+{% set borderRadius = border.borderItemRadius ? 'border-radius: ' ~ border.borderItemRadius ~ 'px;' : '' %}
+
+
+<style>{{ data.customCSS.code }}</style>
+{% include "Containers/" ~ data.general.variant ~ ".twig" %}

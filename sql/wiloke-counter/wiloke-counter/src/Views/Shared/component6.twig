@@ -1,0 +1,39 @@
+{% set componentName = "wiloke-counter" %}
+
+{% set backgroundItem = item.background_item ? 'background-color: ' ~ item.background_item ~ ';' : ''%}
+{% set iconColor = item.icon_color ? 'color: ' ~ item.icon_color ~ ';' : '' %}
+{% set iconBG = item.icon_background ? 'background-color: ' ~ item.icon_background ~ ';' : '' %}
+{% set iconBGRadius = item.icon_radius ? 'border-radius: ' ~ item.icon_radius ~ 'px;' : '' %}
+{% set numberColor = item.number_color ? 'color: ' ~ item.number_color ~ ';' : '' %}
+{% set descriptionColor = item.description_color ? 'color: ' ~ item.description_color ~ ';' : '' %}
+
+<div class="p:3px">
+	<div class="d:flex ai:center fxw:wrap mih:100% p:20px_35px p:20px@+sm bdrs:8px bgc:#fff bxsh:0px_4px_8px_rgba(0,0,0,0.08)" style="{{backgroundItem}}{{borderWidth}}{{borderStyle}}{{borderColor}}{{borderRadius}}">
+		{% if item.icon %}
+			<div class="w:70px h:70px pos:relative d:flex jc:center ai:center lh:1.5 mr:17px flxs:0">
+				{% if item.icon.url %}
+					<img class="{{ componentName }}__image w:30px 30px ar:1 z:2" src="{{ item.icon.url }}" alt="" style="{{iconBG}}">
+				{% else %}
+					<i class="{{ componentName }}__icon {{ item.icon }} iconTypo c:#fff fz:25px fw:300 z:2" style="{{iconColor}} {{iconTypo}}"></i>
+				{% endif %}
+				<div class="pos:absolute ins:0 z:1 bdrs:50% bgc:#D9697D" style="{{iconBG}}{{iconBGRadius}}"></div>
+			</div>
+		{% endif %}
+		<div>
+			<div class="d:flex jc:flex-start">
+				<div class="d:inline-flex">
+					{% if item.number_prefix %}
+						<div class="numberTypo fz:30px fw:400 c:#000 lh:1.2!" style="{{numberTypo}}{{numberColor}}">{{item.number_prefix}}</div>
+					{% endif %}
+					<div class="counter-js numberTypo fz:30px fw:500 c:#000 lh:1.2!" data-from="{{ item.starting_number }}" data-to="{{ item.ending_number }}" data-duration="{{ item.animation_duration }}" data-separator="{{item.separator}}" style="{{numberTypo}}{{numberColor}}"></div>
+					{% if item.number_suffix %}
+						<div class="numberTypo fz:30px fw:400 c:#000 lh:1.2!" style="{{numberTypo}}{{numberColor}}">{{item.number_suffix}}</div>
+					{% endif %}
+				</div>
+			</div>
+			{% if item.description %}
+				<div class="descriptionTypo fz:16px fw:400 ta:center c:#000 lines-1" style="{{descriptionTypo}}{{descriptionColor}}">{{item.description}}</div>
+			{% endif %}
+		</div>
+	</div>
+</div>

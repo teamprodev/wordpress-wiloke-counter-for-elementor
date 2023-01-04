@@ -1,0 +1,23 @@
+{
+  "name": "wiloke-counter",
+  "title": "Wiloke Counter",
+  "icon": "eicon-counter",
+  "category": {
+    "title": "Wiloke",
+    "key": "wiloke-category",
+    "icon": "eicon-font"
+  },
+  "keywords": [
+    "card",
+    "wiloke",
+    "table",
+    "team card",
+    "team member",
+    "list"
+  ],
+  "filename": "elementor-wil-counter",
+  "libs": {
+    "css": [],
+    "js": []
+  }
+}

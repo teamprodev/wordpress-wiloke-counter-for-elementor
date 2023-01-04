@@ -1,0 +1,33 @@
+{% set componentName = "wiloke-counter" %}
+
+{% set backgroundItem = item.background_item ? 'background-color: ' ~ item.background_item ~ ';' : ''%}
+{% set iconColor = item.icon_color ? 'color: ' ~ item.icon_color ~ ';' : '' %}
+{% set iconBG = item.icon_background ? 'background-color: ' ~ item.icon_background ~ ';' : '' %}
+{% set iconBGRadius = item.icon_radius ? 'border-radius: ' ~ item.icon_radius ~ 'px;' : '' %}
+{% set numberColor = item.number_color ? 'color: ' ~ item.number_color ~ ';' : '' %}
+{% set descriptionColor = item.description_color ? 'color: ' ~ item.description_color ~ ';' : '' %}
+{% set bgProgress = item.number_color ? 'background-color: ' ~ item.number_color ~ ';' : '' %}
+
+<div class="d:flex fld:column mih:100% p:20px bdrs:8px bgc:#fff" style="{{backgroundItem}}{{borderWidth}}{{borderStyle}}{{borderColor}}{{borderRadius}}">
+  <div class="{{item.icon ? 'mt:15px' : ''}}">
+    <div class="d:flex jc:flex-start" >
+      <div class="d:inline-flex">
+        {% if item.number_prefix %}
+          <div class="numberTypo fz:45px fw:400 c:#000 lh:1.2!" style="{{numberTypo}}{{numberColor}}">{{item.number_prefix}}</div>
+        {% endif %}
+          <div class="counter-js numberTypo fz:45px fw:500 c:#000 lh:1.2!" data-from="{{ item.starting_number }}" data-to="{{ item.ending_number }}" data-duration="{{ item.animation_duration }}" data-separator="{{item.separator}}" style="{{numberTypo}}{{numberColor}}"></div>
+        {% if item.number_suffix %}
+          <div class="numberTypo fz:45px fw:400 c:#000 lh:1.2!" style="{{numberTypo}}{{numberColor}}">{{item.number_suffix}}</div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="js_max_number pos:relative h:13px m:10px_0 bdrs:100px ov:hidden" data-from="{{ item.starting_number }}" data-to="{{ item.ending_number }}" data-max="{{item.max_number}}">
+      <div class=" bgc:red pos:absolute t:0 l:0 w:100% h:100% op:0.2" style="{{bgProgress}}"></div>
+      <div class="js_percent pos:absolute t:0 l:0 bgc:red w:100% h:100% op:0.8" style="{{bgProgress}}"></div>
+    </div>
+
+    {% if item.description %}
+      <div class="descriptionTypo fz:18px fw:400 c:#000 lines-1" style="{{descriptionTypo}}{{descriptionColor}}">{{item.description}}</div>
+    {% endif %}
+  </div>
+</div>

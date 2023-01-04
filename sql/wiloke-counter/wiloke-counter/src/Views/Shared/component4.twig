@@ -1,0 +1,24 @@
+{% set componentName = "wiloke-counter" %}
+{% set backgroundItem = item.background_item ? 'background-color: ' ~ item.background_item ~ ';' : ''%}
+{% set iconColor = item.icon_color ? 'color: ' ~ item.icon_color ~ ';' : '' %}
+{% set iconBG = item.icon_background ? 'background-color: ' ~ item.icon_background ~ ';' : '' %}
+{% set iconBGRadius = item.icon_radius ? 'border-radius: ' ~ item.icon_radius ~ 'px;' : '' %}
+{% set numberColor = item.number_color ? 'color: ' ~ item.number_color ~ ';' : '' %}
+{% set descriptionColor = item.description_color ? 'color: ' ~ item.description_color ~ ';' : '' %}
+
+<div class="d:flex jc:center ai:center fld:column mih:100% p:22px bdrs:100px bgc:#7B07A4" style="{{backgroundItem}}{{borderWidth}}{{borderStyle}}{{borderColor}}{{borderRadius}}">
+  <div>
+    <div class="d:flex jc:center ai:center">
+      {% if item.number_prefix %}
+        <div class="numberTypo fz:33px fw:400 c:#fff lh:1.2!" style="{{numberTypo}}{{numberColor}}">{{item.number_prefix}}</div>
+      {% endif %}
+      <div class="counter-js numberTypo fz:33px fw:400 c:#fff lh:1.2!" data-from="{{ item.starting_number }}" data-to="{{ item.ending_number }}" data-duration="{{ item.animation_duration }}" data-separator="{{item.separator}}" style="{{numberTypo}}{{numberColor}}"></div>
+      {% if item.number_suffix %}
+        <div class="numberTypo fz:33px fw:400 c:#fff lh:1.2!" style="{{numberTypo}}{{numberColor}}">{{item.number_suffix}}</div>
+      {% endif %}
+    </div>
+    {% if item.description %}
+      <div class="descriptionTypo fz:16px fw:400 ta:center c:#fff lines-1" style="{{descriptionTypo}}{{descriptionColor}}">{{item.description}}</div>
+    {% endif %}
+  </div>
+</div>

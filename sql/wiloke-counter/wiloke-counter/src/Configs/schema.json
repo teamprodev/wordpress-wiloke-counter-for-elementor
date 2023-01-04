@@ -1,0 +1,480 @@
+[
+  {
+    "id": "general",
+    "type": "section",
+    "name": "general",
+    "label": "General",
+    "default": [],
+    "fields": [
+      {
+        "id": "general_variant",
+        "type": "select",
+        "default": "variant1",
+        "name": "variant",
+        "label": "General Variant",
+        "options": {
+          "variant1": "Variant 1",
+          "variant2": "Variant 2",
+          "variant3": "Variant 3",
+          "variant4": "Variant 4",
+          "variant5": "Variant 5",
+          "variant6": "Variant 6",
+          "variant7": "Variant 7"
+        }
+      },
+      {
+        "id": "general_content",
+        "type": "array",
+        "name": "content",
+        "label": "Content",
+        "default": [],
+        "fields": [
+          {
+            "id": "general_content_background_item",
+            "type": "color",
+            "name": "background_item",
+            "label": "Background Item",
+            "default": ""
+          },
+          {
+            "id": "general_content_icon",
+            "type": "icons",
+            "name": "icon",
+            "label": "Icon (For Variant 2, 5, 6)",
+            "default": {
+              "value": "far fa-heart",
+              "library": "fa-regular"
+            }
+          },
+          {
+            "id": "general_content_icon_color",
+            "type": "color",
+            "name": "icon_color",
+            "label": "Icon Color (For Variant 2, 5, 6)",
+            "default": ""
+          },
+          {
+            "id": "general_content_icon_background",
+            "type": "color",
+            "name": "icon_background",
+            "label": "Icon Background (For Variant 2, 5, 6)",
+            "default": ""
+          },
+          {
+            "id": "general_content_icon_radius",
+            "type": "number",
+            "name": "icon_radius",
+            "label": "Icon BG Radius (For Variant 2, 5, 6)",
+            "default": 0,
+            "min": 0,
+            "max": 200
+          },
+          {
+            "id": "general_content_number_prefix",
+            "type": "text",
+            "name": "number_prefix",
+            "label": "Number Prefix",
+            "default": ""
+          },
+          {
+            "id": "general_content_starting_number",
+            "type": "number",
+            "name": "starting_number",
+            "label": "Starting Number",
+            "min": 0,
+            "max": null,
+            "default": 0
+          },
+          {
+            "id": "general_content_ending_number",
+            "type": "number",
+            "name": "ending_number",
+            "label": "Ending Number",
+            "min": 0,
+            "max": null,
+            "default": 3000
+          },
+          {
+            "id": "general_content_number_suffix",
+            "type": "text",
+            "name": "number_suffix",
+            "label": "Number Suffix",
+            "default": ""
+          },
+          {
+            "id": "general_content_max_number",
+            "type": "number",
+            "name": "max_number",
+            "label": "Max Number( For Variant 7 Only )",
+            "min": 0,
+            "max": null,
+            "default": 10000
+          },
+          {
+            "id": "general_content_number_color",
+            "type": "color",
+            "name": "number_color",
+            "label": "Number Color",
+            "default": ""
+          },
+          {
+            "id": "general_content_separator",
+            "type": "select",
+            "name": "separator",
+            "label": "Separator",
+            "default": "default",
+            "options": {
+              "default": "Default",
+              "dot": "Dots",
+              "comma": "Comma"
+            }
+          },
+          {
+            "id": "general_content_animation_duration",
+            "type": "number",
+            "name": "animation_duration",
+            "label": "Animation Duration",
+            "default": 3000,
+            "min": 0,
+            "max": null
+          },
+          {
+            "id": "general_content_description",
+            "type": "text",
+            "name": "description",
+            "label": "Description",
+            "default": "lorem ipsum"
+          },
+          {
+            "id": "general_content_description_color",
+            "type": "color",
+            "name": "description_color",
+            "label": "Description Color",
+            "default": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "typography",
+    "type": "section_style",
+    "name": "typography",
+    "label": "Typography",
+    "default": [],
+    "fields": [
+      {
+        "id": "typography_descriptionTypo",
+        "type": "typography",
+        "label": "Description Typo",
+        "name": "descriptionTypo",
+        "default": "",
+        "selector": "{{WRAPPER}} .descriptionTypo"
+      },
+      {
+        "id": "typography_numberTypo",
+        "type": "typography",
+        "label": "Number Typo",
+        "name": "numberTypo",
+        "default": "",
+        "selector": "{{WRAPPER}} .numberTypo"
+      },
+      {
+        "id": "typography_iconTypo",
+        "type": "typography",
+        "label": "Icon",
+        "name": "iconTypo",
+        "default": "",
+        "selector": "{{WRAPPER}} .iconTypo",
+        "condition": {
+          "general_variant": [
+            "variant2",
+            "variant5",
+            "variant6"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "responsive",
+    "type": "section",
+    "name": "responsive",
+    "label": "Responsive",
+    "default": [],
+    "fields": [
+      {
+        "id": "responsive_lg",
+        "type": "number",
+        "name": "lg",
+        "label": "Column Large",
+        "min": 1,
+        "max": 10,
+        "default": 3,
+        "condition": {
+          "general_variant": [
+            "variant1",
+            "variant2",
+            "variant3",
+            "variant4",
+            "variant5",
+            "variant6",
+            "variant7"
+          ]
+        }
+      },
+      {
+        "id": "responsive_md",
+        "type": "number",
+        "name": "md",
+        "label": "Column Medium",
+        "min": 1,
+        "max": 10,
+        "default": 3,
+        "condition": {
+          "general_variant": [
+            "variant1",
+            "variant2",
+            "variant3",
+            "variant4",
+            "variant5",
+            "variant6",
+            "variant7"
+          ]
+        }
+      },
+      {
+        "id": "responsive_sm",
+        "type": "number",
+        "name": "sm",
+        "label": "Column Small",
+        "min": 1,
+        "max": 10,
+        "default": 2,
+        "condition": {
+          "general_variant": [
+            "variant1",
+            "variant2",
+            "variant3",
+            "variant4",
+            "variant5",
+            "variant6",
+            "variant7"
+          ]
+        }
+      },
+      {
+        "id": "responsive_xs",
+        "type": "number",
+        "name": "xs",
+        "label": "Column Extra Small",
+        "min": 1,
+        "max": 10,
+        "default": 1,
+        "condition": {
+          "general_variant": [
+            "variant1",
+            "variant2",
+            "variant3",
+            "variant4",
+            "variant5",
+            "variant6",
+            "variant7"
+          ]
+        }
+      },
+      {
+        "id": "responsive_gapLg",
+        "type": "number",
+        "name": "gapLg",
+        "label": "Gap Large",
+        "min": 0,
+        "max": 60,
+        "default": 30,
+        "condition": {
+          "general_variant": [
+            "variant1",
+            "variant2",
+            "variant3",
+            "variant4",
+            "variant5",
+            "variant6",
+            "variant7"
+          ]
+        }
+      },
+      {
+        "id": "responsive_gapMd",
+        "type": "number",
+        "name": "gapMd",
+        "label": "Gap Medium",
+        "min": 0,
+        "max": 60,
+        "default": 30,
+        "condition": {
+          "general_variant": [
+            "variant1",
+            "variant2",
+            "variant3",
+            "variant4",
+            "variant5",
+            "variant6",
+            "variant7"
+          ]
+        }
+      },
+      {
+        "id": "responsive_gapSm",
+        "type": "number",
+        "name": "gapSm",
+        "label": "Gap Small",
+        "min": 0,
+        "max": 60,
+        "default": 30,
+        "condition": {
+          "general_variant": [
+            "variant1",
+            "variant2",
+            "variant3",
+            "variant4",
+            "variant5",
+            "variant6",
+            "variant7"
+          ]
+        }
+      },
+      {
+        "id": "responsive_gapXs",
+        "type": "number",
+        "name": "gapXs",
+        "label": "Gap Extra Small",
+        "min": 0,
+        "max": 60,
+        "default": 30,
+        "condition": {
+          "general_variant": [
+            "variant1",
+            "variant2",
+            "variant3",
+            "variant4",
+            "variant5",
+            "variant6",
+            "variant7"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "carousel",
+    "type": "section",
+    "name": "carousel",
+    "label": "Carousel",
+    "default": [],
+    "fields": [
+      {
+        "id": "carousel_enable",
+        "type": "switcher",
+        "name": "enable",
+        "label": "Enable",
+        "default": false
+      },
+      {
+        "id": "carousel_buttonEnable",
+        "type": "switcher",
+        "name": "buttonEnable",
+        "label": "Button Enable",
+        "default": true,
+        "condition": {
+          "carousel_enable": true
+        }
+      },
+      {
+        "id": "carousel_paginationEnable",
+        "type": "switcher",
+        "name": "paginationEnable",
+        "label": "Pagination Enable",
+        "default": true,
+        "condition": {
+          "carousel_enable": true
+        }
+      },
+      {
+        "id": "carousel_buttonColor",
+        "type": "color",
+        "name": "buttonColor",
+        "label": "Button Color",
+        "default": "#000",
+        "condition": {
+          "carousel_enable": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "border",
+    "type": "section_style",
+    "name": "border",
+    "label": "Border",
+    "default": [],
+    "fields": [
+      {
+        "id": "border_borderItemWidth",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": null,
+        "name": "borderItemWidth",
+        "label": "Border Item Width"
+      },
+      {
+        "id": "border_borderItemStyle",
+        "type": "select",
+        "default": "",
+        "name": "borderItemStyle",
+        "label": "Border Item Style",
+        "options": {
+          "solid": "solid",
+          "dotted": "dotted",
+          "dashed": "dashed",
+          "double": "double",
+          "groove": "groove"
+        }
+      },
+      {
+        "id": "border_borderItemColor",
+        "type": "color",
+        "default": "",
+        "name": "borderItemColor",
+        "label": "border Item Color"
+      },
+      {
+        "id": "border_borderItemRadius",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": null,
+        "name": "borderItemRadius",
+        "label": "Border Item Radius"
+      }
+    ]
+  },
+  {
+    "id": "customCSS",
+    "type": "section_style",
+    "name": "customCSS",
+    "label": "Custom CSS",
+    "default": [],
+    "fields": [
+      {
+        "id": "customCSS_code",
+        "type": "code",
+        "name": "code",
+        "label": "Code",
+        "language": "css",
+        "rows": 4,
+        "default": ""
+      }
+    ]
+  }
+]
